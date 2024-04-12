@@ -1,0 +1,21 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    height: 100%;
+    border-left: 2px solid black; 
+}
+
+.content {
+    padding: 0 20px; /* Adjust padding as needed */
+    text-align: center;
+}
