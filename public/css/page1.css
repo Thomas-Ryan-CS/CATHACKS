@@ -10,12 +10,26 @@ body, html {
     align-items: center;
 }
 
-.line {
-    height: 100%;
-    border-left: 2px solid black; 
+.half {
+    flex: 1;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.content {
-    padding: 0 20px; /* Adjust padding as needed */
-    text-align: center;
+.horizontal_line {
+    width: 90%;
+    height: 5px;
+    border: none;
+    background-color: black;
+    margin: 5px 0;
+}
+
+.vertical_line {
+    width: 2px;
+    height: 500px;
+    border: solid;
+    background-color: green;
+    margin: 0 10px; /* Adjust margin as needed */
 }
