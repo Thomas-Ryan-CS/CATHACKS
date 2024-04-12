@@ -1,0 +1,35 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.half {
+    flex: 1;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontal_line {
+    width: 90%;
+    height: 5px;
+    border: none;
+    background-color: black;
+    margin: 5px 0;
+}
+
+.vertical_line {
+    width: 2px;
+    height: 500px;
+    border: solid;
+    background-color: green;
+    margin: 0 10px; /* Adjust margin as needed */
+}
