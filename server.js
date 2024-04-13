@@ -26,6 +26,10 @@ app.get('/mission', (req, res) => {
     res.sendFile(path.join(__dirname, 'mission.html'));
 });
 
+app.get('/Contact', (req, res) => {
+    res.sendFile(path.join(__dirname, 'contact.html'));
+});
+
 const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     service: 'gmail',
