@@ -1,0 +1,92 @@
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Modern, clean font */
+    color: #FFF; /* White text color for all text */
+    background-color: #121212; /* Dark background for the whole page */
+}
+
+header {
+    background-color: #0a0a0a; /* Slightly lighter black background for the header */
+    padding: 20px 40px; /* Ample padding around the content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-title {
+    text-decoration: none; /* Remove underline from link */
+    color: #FFF; /* White text color for header title */
+}
+
+nav a {
+    color: #39ff14; /* Neon green color for links */
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.main-container {
+    
+    justify-content: space-between;
+    padding: 40px; /* Padding to create space inside the container */
+}
+
+path {
+    stroke: white;
+    fill: paleturquoise !important;
+    transition: fill .4s ease;
+    transform-origin: center center;
+}
+
+path:hover {
+    fill: orange !important;
+    cursor: pointer;
+    transform: scale(1.005, 1.005);
+}
+
+#us-map {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#details-box {
+    box-shadow: 0px 7px 40px rgba(0, 0, 0, 0.7);
+    opacity: 0%;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 24px;
+    position: fixed;
+    color: white;
+    font-family: "Poppins";
+    background-color: black;
+    width: fit-content;
+    transform: translateX(-50%);
+    transition: opacity .4s ease;
+    z-index: 1;
+}
+
+.main-content {
+    flex: 1; /* Take up equal space */
+    margin: 0 20px; /* Space between columns */
+    background-color: #21002e; /* Deep purple backgrounds for content areas */
+    padding: 20px; /* Internal padding for content */
+    border-radius: 10px; /* Rounded corners for modern look */
+}
+
+h1, p {
+    margin-bottom: 20px; /* Space below headings and paragraphs */
+}
+
+h1 {
+    font-size: 2em; /* Larger font size for header */
+}
