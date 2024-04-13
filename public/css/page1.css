@@ -8,28 +8,53 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Position relative for absolute positioning of cross lines */
+    flex-direction: row; /* Set the flex direction to row */
 }
 
 .half {
     flex: 1;
-    border: 1px solid black;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5%;
+}
+
+.cross_container {
+    position: absolute;
 }
 
 .horizontal_line {
-    width: 90%;
+    width: 100%;
     height: 5px;
     border: none;
     background-color: black;
-    margin: 5px 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
 }
 
 .vertical_line {
     width: 2px;
-    height: 500px;
+    height: 70%;
     border: solid;
     background-color: green;
-    margin: 0 10px; /* Adjust margin as needed */
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.PageHeader {
+    margin-bottom: 0px; /* Adjust the margin as needed */
+}
+
+.container_split {
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Position relative for absolute positioning of cross lines */
+    flex-direction: row; /* Set the flex direction to row */
 }

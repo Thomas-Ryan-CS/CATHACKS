@@ -1,12 +1,11 @@
-// general express requirements
 const express = require('express');
 const app = express();
 const path = require('path');
 
-// this is to connect to public folder which will handle all the files for this
+// Serve static files from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// root to main page
+// Root route to serve the index.html
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
