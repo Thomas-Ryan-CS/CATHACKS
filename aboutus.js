@@ -33,42 +33,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Function to send email using AJAX
 async function sendEmail(recipientEmail, password) {
+    console.log('Recipient Email:', recipientEmail);
+    console.log('Password:', password);
+    
     if (!recipientEmail) {
         console.error('Recipient email is not defined.');
         return;
     }
 
-    // Make an AJAX request to the server to check email uniqueness and send the email
-    axios.post('/checkEmail', { recipientEmail })
-        .then(response => {
-            if (response.data.unique) {
-                // Email is unique, proceed to send email
-                axios.post('/sendEmail', { recipientEmail, password }) // Send both recipientEmail and password
-                    .then(response => {
-                        if (response.status === 200) {
-                            console.log('Email sent successfully');
-                            // Clear input field after successful sending
-                            document.getElementById('recipientEmail').value = '';
-                            document.getElementById('password').value = ''; // Clear password field
-                        } else {
-                            console.error('Failed to send email');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-            } else {
-                // Email already exists in the database, do not send email
-                console.log('Email already exists. Account creation skipped.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    try {
+        // Make an AJAX request to the server to check email uniqueness
+        const checkResponse = await axios.post('/checkEmail', { recipientEmail });
 
-    // Store email and password in the database regardless of email uniqueness
-    storeInDatabase(recipientEmail, password);
+        if (checkResponse.data.unique) {
+            // Email is unique, proceed to send email
+            const sendResponse = await axios.post('/sendEmail', { recipientEmail, password });
+
+            if (sendResponse.status === 200) {
+                console.log('Email sent successfully');
+                // Clear input field after successful sending
+                document.getElementById('recipientEmail').value = '';
+                document.getElementById('password').value = ''; // Clear password field
+            } else {
+                console.error('Failed to send email');
+            }
+        } else {
+            // Email already exists in the database, do not send email
+            console.log('Email already exists. Account creation skipped.');
+        }
+        
+        // Store email and password in the database regardless of email uniqueness
+        await storeInDatabase(recipientEmail, password);
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
+
 
 function storeInDatabase(email, password) {
     // Make an AJAX request to the server to store the data
