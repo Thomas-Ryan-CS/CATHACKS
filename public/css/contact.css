@@ -87,18 +87,18 @@ footer {
 
 h1 {
     font-family: Poppins;
-    margin-left: 5%;
     font-size: 40px;
+    text-align: center;
 }
 
 h2 {
+    text-align: center;
     font-family: Poppins;
-    margin-left: 10%;
     font-size: 27px;
 }
 
 h3 {
     font-family: Poppins;
-    margin-left: 15%;
+    text-align: center;
     font-size: 14px;
 }
