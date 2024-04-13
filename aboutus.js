@@ -16,3 +16,34 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const sendButton = document.getElementById("sendButton");
+    const recipientEmailInput = document.getElementById("recipientEmail");
+
+    sendButton.addEventListener("click", function() {
+        const recipientEmail = recipientEmailInput.value;
+        // Call a function to send email using an AJAX request
+        sendEmail(recipientEmail);
+    });
+});
+
+// Function to send email using AJAX
+function sendEmail(recipientEmail) {
+    // Make an AJAX request to the server to send the email
+    axios.post('/sendEmail', { recipientEmail })
+        .then(response => {
+            if (response.status === 200) {
+                console.log('Email sent successfully');
+                // Clear input field after successful sending
+                document.getElementById('recipientEmail').value = '';
+            } else {
+                console.error('Failed to send email');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+
+

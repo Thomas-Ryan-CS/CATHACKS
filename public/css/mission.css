@@ -1,31 +1,6 @@
-/* CSS file for page 2 */
 body, html {
     height: 100%;
     margin: 0;
-}
-
-.big-div {
-    font-family: Poppins;
-    background-color: #f0f0f0;
-    padding: 20px;
-    margin: 20px;
-    border: 2px solid #333;
-}
-
-.medium-div {
-    font-family: Poppins;
-    background-color: #eaeaea;
-    padding: 15px;
-    margin: 15px;
-    border: 1px solid #666;
-}
-
-.small-div {
-    font-family: Poppins;
-    background-color: #dcdcdc;
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #999;
 }
 
 header {
@@ -35,21 +10,11 @@ header {
     margin-bottom: 0;
 }
 
-.header-content {
-    display: flex; /* Use flexbox for layout */
-    justify-content: left; /* Center horizontally */
-    align-items: center; /* Center vertically */
-}
-
-.header-content h1 {
-    margin: 0 10px; /* Add some spacing between elements */
-    font-size: 50px;
-}
-
-.navbar {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
+footer {
+    font-family: Poppins;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px 0;
 }
 
 .navbar-list {
@@ -72,11 +37,15 @@ header {
     text-decoration: none; /* Remove underlines from all links within list items in the navbar */
 }
 
-footer {
-    font-family: Poppins;
-    text-align: center;
-    background-color: #f0f0f0;
-    padding: 20px 0;
+.header-content {
+    display: flex; /* Use flexbox for layout */
+    justify-content: left; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.header-content h1 {
+    margin: 0 10px; /* Add some spacing between elements */
+    font-size: 50px;
 }
 
 .dropdown {
@@ -106,6 +75,7 @@ footer {
 }
 
 .dropdown:hover .dropdown-content {
+    text-decoration: none;
     display: block;
 }
 
