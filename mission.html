@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opioid Safety Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fairwater&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/mission.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Patient Safety</h1>
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li><a href="/index">Opioid Data</a></li>
+                    <li><a href="/page2">Opioid Addiction Map</a></li>
+                    <li class="dropdown"> <!-- Added class for dropdown -->
+                        <div class="dropdown-trigger"> <!-- Dropdown trigger container -->
+                            <a href="#" id="aboutUsLink">Misc.</a>
+                        </div>
+                        <div class="dropdown-content"> <!-- Dropdown content -->
+                            <a href="https://www.linkedin.com/in/thomas-ryan-a88860179/" target="_blank">Thomas Ryan</a>
+                            <a href="https://www.linkedin.com/in/singhiengwong/" target="_blank">James Wong</a>
+                            <a href="/mission">Sign Up</a>
+                            <a href="/contact">Contact Us</a>
+                            <!-- Add more dropdown links as needed -->
+                        </div>
+                    </li>
+                </ul>
+                <body>
+                    <script>
+                        async function sendEmail() {
+                            const recipientEmail = document.getElementById('recipientEmail').value;
+                            
+                            try {
+                                const response = await axios.post('/sendEmail', { recipientEmail });
+                                console.log(response.data);
+                                alert('Email sent successfully!');
+                            } catch (error) {
+                                console.error('Error sending email:', error);
+                                alert('Error sending email. Please try again later.');
+                            }
+                        }
+                    </script>
+                    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+                </body>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Create an Account</h2>
+        <img src="https://patagoniahealth.com/wp-content/uploads/2017/05/2489531.Def_.L.png" width="300" height="300">
+        <input type="email" id="recipientEmail" placeholder="Recipient Email">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="sendEmail()">Submit</button>
+    </div>
+    <footer>
+        <p>© 2024 Opioid Safety Program. All Rights Reserved.</p>
+        <a href="https://constitution.congress.gov/constitution/amendment-2/#:~:text=A%20well%20regulated%20Militia%2C%20being,Arms%2C%20shall%20not%20be%20infringed." target="_blank">Terms of Service</a>
+    </footer>
+
+    <script src="aboutus.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>
