@@ -1,31 +1,30 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const loginButton = document.getElementById("loginButton");
+document.addEventListener("click", function() {
+    const emailInput = document.getElementById("recipientEmail");
+    const passwordInput = document.getElementById("password");
 
-    loginButton.addEventListener("click", function() {
-        const emailInput = document.getElementById("email");
-        const passwordInput = document.getElementById("password");
+    const email = emailInput.value;
+    const password = passwordInput.value;
 
-        const email = emailInput.value;
-        const password = passwordInput.value;
-
-        // Call a function to log in using an AJAX request
-        login(email, password);
-    });
+    // Call a function to log in using an AJAX request
+    login(email, password);
 });
 
-// Function to log in using AJAX
+// Function to log in using AJAX    
 async function login(email, password) {
     console.log('Email:', email);
     console.log('Password:', password);
-    
+
     if (!email || !password) {
-        console.error('Email or password is not defined.');
+        console.error('Email or password is not  defined.');
         return;
     }
 
     try {
         // Make an AJAX request to the server to perform login
         const response = await axios.post('/login', { email, password });
+        
+        // Log server response
+        console.log('Server Response:', response);
 
         if (response.status === 200) {
             console.log('Logged in successfully');

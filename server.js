@@ -57,6 +57,34 @@ app.post('/storeData', (req, res) => {
     });
 });
 
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
+
+    // Validate email and password
+    if (!validator.isEmail(email) || !password) {
+        console.log("Invalid email or password");
+        return res.status(400).send("Invalid email or password");
+    }
+
+    // Check if email and password match in the database
+    db.get("SELECT email FROM users WHERE email = ? AND password = ?", [email, password], (err, row) => {
+        if (err) {
+            console.error("Error checking credentials:", err);
+            return res.status(500).send("Error checking credentials");
+        }
+
+        if (row) {
+            // User authenticated successfully
+            console.log("User logged in successfully");
+            return res.sendStatus(200);
+        } else {
+            // Authentication failed
+            console.log("Invalid email or password");
+            return res.status(401).send("Invalid email or password");
+        }
+    });
+});
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
