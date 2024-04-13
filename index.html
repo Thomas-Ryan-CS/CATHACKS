@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opioid Safety Program</title>
     <link rel="stylesheet" type="text/css" href="/css/page1.css">
+    <style>
+        /* Styles for dropdown (if any) can be included in the CSS file */
+    </style>
 </head>
 <body>
     <header>
@@ -12,14 +15,24 @@
             <h1>Patient Safety</h1>
             <nav class="navbar">
                 <ul class="navbar-list">
-                    <li><a href="#">Opioid Data</a></li>
+                    <li><a href="/index">Opioid Data</a></li>
                     <li><a href="/page2">Opioid Addiction Map</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <!-- Add other navigation items here -->
+                    <li class="dropdown"> <!-- Added class for dropdown -->
+                        <div class="dropdown-trigger"> <!-- Dropdown trigger container -->
+                            <a href="#" id="aboutUsLink">About Us</a>
+                        </div>
+                        <div class="dropdown-content"> <!-- Dropdown content -->
+                            <a href="https://www.linkedin.com/in/thomas-ryan-a88860179/" target="_blank">Thomas Ryan</a>
+                            <a href="#">Team</a>
+                            <!-- Add more dropdown links as needed -->
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
+    <div class="Article_Head">Data Analysis on Opioid Data</div>
+    <div class="Authors_AH">by Thomas Ryan, #2, #3</div>
     <div class="container_split">
         <div class="half">
             <h2>Opioid Data</h2>
@@ -37,12 +50,20 @@
     </div>
 
     <!-- Normal paragraph style text -->
+    <div class="para_header">Analysis of the Options</div>
     <div class="paragraph">
-        <p>This is a normal paragraph style text.</p>
+        <p>
+            <pre class = "paragraph">
+                This is a preformatted set of text. 
+                    Big W.
+            </pre>
+        </p>
     </div>
 
     <footer>
         <p>© 2024 Opioid Safety Program. All Rights Reserved.</p>
     </footer>
+
+    <script src="aboutus.js"></script> 
 </body>
 </html>

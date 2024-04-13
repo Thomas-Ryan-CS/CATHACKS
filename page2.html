@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Second Page</title>
+    <title>Opioid Safety Program</title>
     <link rel="stylesheet" type="text/css" href="/css/page2.css">
+    <style>
+        /* Styles for dropdown (if any) can be included in the CSS file */
+    </style>
 </head>
 <body>
     <header>
@@ -14,36 +17,43 @@
                 <ul class="navbar-list">
                     <li><a href="/index">Opioid Data</a></li>
                     <li><a href="/page2">Opioid Addiction Map</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <!-- Add other navigation items here -->
+                    <li class="dropdown"> <!-- Added class for dropdown -->
+                        <div class="dropdown-trigger"> <!-- Dropdown trigger container -->
+                            <a href="#" id="aboutUsLink">About Us</a>
+                        </div>
+                        <div class="dropdown-content"> <!-- Dropdown content -->
+                            <a href="https://www.linkedin.com/in/thomas-ryan-a88860179/" target="_blank">Thomas Ryan</a>
+                            <a href="#">Team</a>
+                            <!-- Add more dropdown links as needed -->
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Big Div -->
     <div class="big-div">
-        <h2>Big Div</h2>
-        <p>This is the big div with lots of content.</p>
+        <h2>Addiction Map</h2>
+        <img src="page_2_map_placeholder.png" alt="Probably a Map of Some Kind" width="500" height="333">
     </div>
 
+    <!-- Medium Div -->
     <div class="medium-div">
-        <h2>Medium Div</h2>
-        <p>This is a medium-sized div.</p>
+        <h2>Graphs and Data</h2>
+        <p>This is a medium div.</p>
     </div>
 
-    <!-- Repeat this div pattern as needed -->
-    <div class="medium-div">
-        <h2>Medium Div</h2>
-        <p>This is another medium-sized div.</p>
-    </div>
-
+    <!-- Small Div -->
     <div class="small-div">
-        <h2>Small Div</h2>
-        <p>This is the small div.</p>
+        <h2>Takeaways</h2>
+        <p>This is a small div.</p>
     </div>
 
     <footer>
         <p>© 2024 Opioid Safety Program. All Rights Reserved.</p>
     </footer>
+
+    <script src="aboutus.js"></script>
 </body>
 </html>
