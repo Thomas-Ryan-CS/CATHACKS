@@ -32,9 +32,10 @@
                     <script>
                         async function sendEmail() {
                             const recipientEmail = document.getElementById('recipientEmail').value;
+                            const password = document.getElementById('password').value; // Retrieve password
                             
                             try {
-                                const response = await axios.post('/sendEmail', { recipientEmail });
+                                const response = await axios.post('/sendEmail', { recipientEmail, password }); // Include password in data
                                 console.log(response.data);
                                 alert('Email sent successfully!');
                             } catch (error) {
@@ -53,7 +54,7 @@
         <img src="https://patagoniahealth.com/wp-content/uploads/2017/05/2489531.Def_.L.png" width="300" height="300">
         <input type="email" id="recipientEmail" placeholder="Recipient Email">
         <input type="password" id="password" placeholder="Password">
-        <button onclick="sendEmail()">Submit</button>
+        <button id="sendButton" onclick="sendEmail()">Submit</button>
     </div>
     <footer>
         <p>© 2024 Opioid Safety Program. All Rights Reserved.</p>
@@ -61,6 +62,7 @@
     </footer>
 
     <script src="aboutus.js"></script>
+    <script src="server.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>

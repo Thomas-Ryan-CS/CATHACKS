@@ -1,4 +1,5 @@
 const express = require('express');
+const validator = require('validator');
 const nodemailer = require("nodemailer");
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
@@ -25,22 +26,37 @@ app.post('/storeData', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    // Insert data into the database
-    db.run("INSERT INTO users (email, password) VALUES (?, ?)", [email, password], function(err) {
+    // Check if the email is valid
+    if (!validator.isEmail(email)) {
+        console.log("Invalid email address");
+        return res.status(400).send("Invalid email address");
+    }
+
+    // Check if email exists in the database
+    db.get("SELECT email FROM users WHERE email = ?", [email], (err, row) => {
         if (err) {
-            if (err.message.includes("UNIQUE constraint failed")) {
-                // Ignore duplicate entries
-                console.log("Email already exists in the database");
-                return res.sendStatus(409); // Conflict status code
-            } else {
-                console.error("Error inserting data:", err);
-                return res.status(500).send("Failed to store data in the database");
-            }
+            console.error("Error checking email:", err);
+            return res.status(500).send("Error checking email");
         }
-        console.log("Data stored in the database");
-        res.sendStatus(200);
+
+        if (row) {
+            // Email already exists in the database
+            console.log("Email already exists in the database");
+            return res.sendStatus(409); // Conflict status code
+        } else {
+            // Insert email and password into the database
+            db.run("INSERT INTO users (email, password) VALUES (?, ?)", [email, password], function(err) {
+                if (err) {
+                    console.error("Error inserting data:", err);
+                    return res.status(500).send("Failed to store data in the database");
+                }
+                console.log("Data stored in the database");
+                res.sendStatus(200);
+            });
+        }
     });
 });
+
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
@@ -82,7 +98,7 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/sendEmail', async (req, res) => {
-    const { recipientEmail } = req.body;
+    const { recipientEmail, password } = req.body;
 
     try {
         // Perform database check
@@ -91,6 +107,7 @@ app.post('/sendEmail', async (req, res) => {
         if (!emailExists) {
             // Insert email into the database
             await storeEmailInDatabase(recipientEmail);
+            await storePassInDataBase(recipientEmail, password); // Pass both email and password
 
             // Send email
             const mailOptions = {
@@ -129,6 +146,12 @@ function checkEmailExists(email) {
 // Function to store email in the database
 function storeEmailInDatabase(email) {
     return new Promise((resolve, reject) => {
+        if (!validator.isEmail(email)) {
+            // If the email is not valid, reject the promise
+            reject(new Error('Invalid email address'));
+            return;
+        }
+        
         db.run("INSERT INTO users (email) VALUES (?)", [email], function(err) {
             if (err) {
                 reject(err);
@@ -139,6 +162,21 @@ function storeEmailInDatabase(email) {
     });
 }
 
+function storePassInDataBase(email, pass) {
+    return new Promise((resolve, reject) => {
+        if (!pass) {
+            reject(new Error('Invalid Password'));
+            return;
+        }
+        db.run("UPDATE users SET password = ? WHERE email = ?", [pass, email], function(err) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
+    });
+}
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
