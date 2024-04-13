@@ -22,29 +22,13 @@
                         <div class="dropdown-content"> <!-- Dropdown content -->
                             <a href="https://www.linkedin.com/in/thomas-ryan-a88860179/" target="_blank">Thomas Ryan</a>
                             <a href="https://www.linkedin.com/in/singhiengwong/" target="_blank">James Wong</a>
+                            <a href="https://www.linkedin.com/in/ketsile-dikobe-a4ab1925a/" target="_blank">Ketsile Dikobe</a>
                             <a href="/mission">Sign Up</a>
                             <a href="/contact">Contact Us</a>
                             <!-- Add more dropdown links as needed -->
                         </div>
                     </li>
                 </ul>
-                <body>
-                    <script>
-                        async function sendEmail() {
-                            const recipientEmail = document.getElementById('recipientEmail').value;
-                            
-                            try {
-                                const response = await axios.post('/sendEmail', { recipientEmail });
-                                console.log(response.data);
-                                alert('Email sent successfully!');
-                            } catch (error) {
-                                console.error('Error sending email:', error);
-                                alert('Error sending email. Please try again later.');
-                            }
-                        }
-                    </script>
-                    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-                </body>
             </nav>
         </div>
     </header>
