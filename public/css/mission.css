@@ -85,3 +85,63 @@ footer {
     margin-right: auto;
     width: 75%;
 }
+
+#recipientEmail,
+#passwardo {
+    width: 300px; /* Set the width of the input fields */
+    padding: 10px; /* Add padding for better visual appearance */
+    margin: 5px; /* Add margin to separate the input fields */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    font-size: 16px; /* Set font size */
+}
+
+/* Style placeholder text */
+#recipientEmail::placeholder,
+#passwardo::placeholder {
+    color: #999; /* Set placeholder text color */
+}
+
+/* Style input fields on focus */
+#recipientEmail:focus,
+#passwardo:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #66afe9; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.5); /* Add a subtle box shadow on focus */
+}
+
+button {
+    padding: 10px 20px; /* Add padding to the button */
+    margin: 5px; /* Add margin to separate the button from other elements */
+    border: none; /* Remove the default button border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    background-color: #007bff; /* Set background color */
+    color: #fff; /* Set text color */
+    font-size: 16px; /* Set font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Add transition effect for background color */
+    align-items: center;
+}
+
+/* Style the button on hover */
+button:hover {
+    background-color: #0056b3; /* Darken background color on hover */
+}
+
+/* Style the button on focus */
+button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow on focus */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container h2 {
+    font-family: Poppins;
+    font-size: 30px;
+}

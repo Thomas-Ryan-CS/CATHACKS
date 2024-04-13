@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
     const sendButton = document.getElementById("sendButton");
     const recipientEmailInput = document.getElementById("recipientEmail");
+    const pass = document.getElementById('password').value;
 
     sendButton.addEventListener("click", function() {
         const recipientEmail = recipientEmailInput.value;
@@ -36,6 +37,7 @@ function sendEmail(recipientEmail) {
                 console.log('Email sent successfully');
                 // Clear input field after successful sending
                 document.getElementById('recipientEmail').value = '';
+                document.getElementById('password').value = ''; // Clear password field
             } else {
                 console.error('Failed to send email');
             }
@@ -44,6 +46,8 @@ function sendEmail(recipientEmail) {
             console.error('Error:', error);
         });
 }
+
+
 
 
 
