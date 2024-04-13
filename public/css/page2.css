@@ -1,0 +1,73 @@
+/* CSS file for page 2 */
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.big-div {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid #333;
+}
+
+.medium-div {
+    background-color: #eaeaea;
+    padding: 15px;
+    margin: 15px;
+    border: 1px solid #666;
+}
+
+.small-div {
+    background-color: #dcdcdc;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #999;
+}
+
+header {
+    text-align: center; /* Center align the content */
+}
+
+.header-content {
+    display: flex; /* Use flexbox for layout */
+    justify-content: left; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.header-content h1 {
+    margin: 0 10px; /* Add some spacing between elements */
+    font-size: 50px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar-list li {
+    margin-right: 20px; /* Add margin between navbar items */
+    font-size: 20px;
+}
+
+.navbar-list li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar-list li a:hover {
+    color: #666;
+}
+
+footer {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px 0;
+}

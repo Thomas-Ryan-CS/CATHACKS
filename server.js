@@ -10,6 +10,15 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Route to serve page2.html
+app.get('/page2', (req, res) => {
+    res.sendFile(path.join(__dirname,  'page2.html'));
+});
+
+app.get('/index', (req, res) => {
+    res.sendFile(path.join(__dirname,  'index.html'));
+});
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
