@@ -26,11 +26,12 @@ body, html {
     padding: 10px;
     margin: 10px;
     border: 1px solid #999;
+    text-align: center;
 }
 
 header {
     font-family: Poppins;
-    background-color: lightblue;
+    background-color: lightgreen;
     text-align: center; /* Center align the content */
     margin-bottom: 0;
 }
@@ -63,12 +64,12 @@ header {
 .navbar-list li {
     margin-right: 50px; /* Add margin between navbar items */
     margin-left: 50px;
-    font-size: 45px;
+    font-size: 35px;
     text-decoration: none;
 }
 
 .navbar-list li a {
-    font-family: 'Brush Script MT', cursive;
+    font-family: Poppins;
     text-decoration: none; /* Remove underlines from all links within list items in the navbar */
 }
 
@@ -114,4 +115,14 @@ footer {
     margin-left: auto;
     margin-right: auto;
     width: 75%;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+.image-container img {
+    width: 48%; /* Adjust width as needed */
 }

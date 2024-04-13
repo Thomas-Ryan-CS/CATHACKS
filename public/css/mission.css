@@ -28,12 +28,12 @@ footer {
 .navbar-list li {
     margin-right: 50px; /* Add margin between navbar items */
     margin-left: 50px;
-    font-size: 45px;
+    font-size: 35px;
     text-decoration: none;
 }
 
 .navbar-list li a {
-    font-family: 'Brush Script MT', cursive;
+    font-family: Poppins;
     text-decoration: none; /* Remove underlines from all links within list items in the navbar */
 }
 
