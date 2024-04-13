@@ -18,26 +18,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const sendButton = document.getElementById("sendButton");
-    const recipientEmailInput = document.getElementById("recipientEmail");
-    const passwordInput = document.getElementById('password');
 
     sendButton.addEventListener("click", function() {
+        const recipientEmailInput = document.getElementById("recipientEmail");
+        const passwordInput = document.getElementById("password");
+
         const recipientEmail = recipientEmailInput.value;
         const password = passwordInput.value;
-        
+
         // Call a function to send email using an AJAX request
         sendEmail(recipientEmail, password);
     });
 });
 
 // Function to send email using AJAX
-function sendEmail(recipientEmail, password) {
+async function sendEmail(recipientEmail, password) {
+    if (!recipientEmail) {
+        console.error('Recipient email is not defined.');
+        return;
+    }
+
     // Make an AJAX request to the server to check email uniqueness and send the email
     axios.post('/checkEmail', { recipientEmail })
         .then(response => {
             if (response.data.unique) {
                 // Email is unique, proceed to send email
-                axios.post('/sendEmail', { recipientEmail })
+                axios.post('/sendEmail', { recipientEmail, password }) // Send both recipientEmail and password
                     .then(response => {
                         if (response.status === 200) {
                             console.log('Email sent successfully');

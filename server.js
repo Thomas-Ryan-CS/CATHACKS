@@ -10,7 +10,8 @@ const port = process.env.PORT || 3001;
 
 // DB stuff first
 
-const db = new sqlite3.Database(':memory:');
+const dbPath = path.join(__dirname, 'accounts.db');
+const db = new sqlite3.Database(dbPath);
 
 db.serialize(() => {
     db.run("CREATE TABLE IF NOT EXISTS users (email TEXT UNIQUE, password TEXT)");
